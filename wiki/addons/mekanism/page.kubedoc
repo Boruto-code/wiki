@@ -7,19 +7,19 @@ event.recipes.mekanism.smelting(output, input)
 
 # Combining
 ```js
-event.recipes.mekanism.combining(output, input1, input2)
+event.recipes.mekanism.combining(output, mainInput, extraInput)
 ```
 
 # Compressing, Purifying, Injecting
 ```js
-event.recipes.mekanism.compressing(output, inputItem, inputGas)
-event.recipes.mekanism.purifying(output, inputItem, inputGas)
-event.recipes.mekanism.injecting(output, inputItem, inputGas)
+event.recipes.mekanism.compressing(output, itemInput, inputChemical)
+event.recipes.mekanism.purifying(output, itemInput, inputChemical)
+event.recipes.mekanism.injecting(output, itemInput, inputChemical)
 ```
 
 # Infusing
 ```js
-event.recipes.mekanism.metallurgic_infusing(output, inputItem, infusionInput, infusionAmount)
+event.recipes.mekanism.metallurgic_infusing(output, itemInput, chemicalInput)
 ```
 
 # Sawing
@@ -32,14 +32,24 @@ event.recipes.mekanism.sawing(output, input, extraOutput)
 event.recipes.mekanism.chemical_infusing(output, inputLeft, inputRight)
 ```
 
+# Pigment Extracting
+```js
+event.recipes.mekanism.pigment_extracting(output, input)
+```
+
+# Pigment Mixing
+```js
+event.recipes.mekanism.pigment_mixing(output, inputLeft, inputRight)
+```
+
 # Crystallizing
 ```js
-event.recipes.mekanism.crystallizing(output, inputGas)
+event.recipes.mekanism.crystallizing(output, input)
 ```
 
 # Dissolution
 ```js
-event.recipes.mekanism.dissolution(gasOutput, gasInput, itemInput)
+event.recipes.mekanism.dissolution(chemicalOutput, chemicalInput, itemInput)
 ```
 
 # Item > Energy Conversion
@@ -47,23 +57,48 @@ event.recipes.mekanism.dissolution(gasOutput, gasInput, itemInput)
 event.recipes.mekanism.energy_conversion(input, output)
 ```
 
+# Item > Chemical Conversion
+```js
+event.recipes.mekanism.chemical_conversion(output, input)
+```
+
+# Oxidizing, Painting
+```js
+event.recipes.mekanism.oxidizing(output, input)
+event.recipes.mekanism.painting(output, input)
+```
+
+# Nucleosynthesizing
+```js
+event.recipes.mekanism.nucleosynthesizing(output, itemInput, chemicalInput, duration)
+```
+
+# Centrifuging, Activating
+```js
+event.recipes.mekanism.centrifuging(output, input)
+event.recipes.mekanism.activating(output, input)
+```
+
+# Reaction (PRC)
+```js
+event.recipes.mekanism.reaction(itemInput, fluidInput, chemicalInput, duration, itemOutput, chemicalOutput, energyRequired)
+```
+
+# Separator
+```js
+event.recipes.mekanism.separating(outputLeft, outputRight, input)
+```
+
+# Washing
+```js
+event.recipes.mekanism.separating(output, fluidInput, chemicalInput)
+```
+
 # Broken / Unsupported Recipe Types
 There recipe types are currently broken / aren't supported:
-- Item > Gas Conversion
-- Item > Infuse Type Conversion
 - Thermal Evaporation
-- Nucleosynthesizing
-- Centrifuging
-- Activating
 - Liquifier
-- Oxidizing
 - Condensentrating / Decondensentrating
-- Painting
-- Pigment Mixing
-- Pigment Extracting
-- Reaction (PRC)
-- Separator
-- Washing
 - Fission Reactor ([There's a mod for this!](https://www.curseforge.com/minecraft/mc-mods/mekanism-fission-recipe))
 
 For now, use `event.custom` for these.
@@ -74,9 +109,6 @@ These have no recipe types:
 
 # Registries
 You can register the following with the addon:
-- `mekanism:slurry`
-- `mekanism:gas`
-- `mekanism:infuse_type`
-- `mekanism:pigment`
+- `mekanism:chemical`
 - `mekanism:module`
 - `mekanism:robit_skin`
